@@ -1,0 +1,149 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Core4Logistics.Models;
+
+namespace Core4Logistics.Managers
+{
+    public static class LoadManager
+    {
+        public static void AddLoad(List<Load> loads)
+        {
+            Console.Clear();
+            Console.WriteLine("=== Add New Load ===\n");
+
+            Console.Write("Shipper: ");
+            string shipper = Console.ReadLine();
+
+            Console.Write("Consignee: ");
+            string consignee = Console.ReadLine();
+
+            Console.Write("Origin: ");
+            string origin = Console.ReadLine();
+
+            Console.Write("Destination: ");
+            string destination = Console.ReadLine();
+
+            Console.Write("Commodity: ");
+            string commodity = Console.ReadLine();
+
+            // Weight input
+            Console.Write("Weight (lbs): ");
+            string weightInput = Console.ReadLine();
+            double weight;
+
+            while (!double.TryParse(weightInput, out weight) || weight <= 0)
+            {
+                Console.Write("Invalid entry. Enter a valid weight (lbs): ");
+                weightInput = Console.ReadLine();
+            }
+
+            // Rate input
+            Console.Write("Rate ($): ");
+            string rateInput = Console.ReadLine();
+            decimal rate;
+
+            while (!decimal.TryParse(rateInput, out rate) || rate < 0)
+            {
+                Console.Write("Invalid entry. Enter a valid rate: ");
+                rateInput = Console.ReadLine();
+            }
+
+            try
+            {
+                Load newLoad = new Load(shipper, consignee, origin, destination, commodity, weight, rate);
+                loads.Add(newLoad);
+
+                Console.WriteLine("\nLoad added successfully!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            Console.WriteLine("\nPress Enter to continue...");
+            Console.ReadLine();
+        }
+
+        public static void ViewLoads(List<Load> loads)
+        {
+            Console.Clear();
+            Console.WriteLine("=== View All Loads ===\n");
+
+            if (loads.Count == 0)
+            {
+                Console.WriteLine("No loads found.");
+            }
+            else
+            {
+                foreach (var load in loads)
+                {
+                    Console.WriteLine(load.ToString());
+                }
+            }
+
+            Console.WriteLine("\nPress Enter to continue...");
+            Console.ReadLine();
+        }
+
+        public static void RemoveLoad(List<Load> loads)
+        {
+            Console.Clear();
+            Console.WriteLine("=== Remove Load ===\n");
+
+            Console.Write("Enter Load ID to remove: ");
+            string id = Console.ReadLine();
+
+            var loadToRemove = loads.FirstOrDefault(l => l.LoadID == id);
+
+            if (loadToRemove != null)
+            {
+                loads.Remove(loadToRemove);
+                Console.WriteLine("Load removed successfully!");
+            }
+            else
+            {
+                Console.WriteLine("Load not found.");
+            }
+
+            Console.WriteLine("\nPress Enter to continue...");
+            Console.ReadLine();
+        }
+
+        // PURE GREEDY VERSION — No manual driver input
+        public static void AssignDriverToLoad(List<Driver> drivers, List<Load> loads)
+        {
+            Console.Clear();
+            Console.WriteLine("=== Assign Driver (Greedy Algorithm) ===\n");
+
+            Console.Write("Enter Load ID: ");
+            string loadID = Console.ReadLine();
+            Load load = loads.FirstOrDefault(l => l.LoadID == loadID);
+
+            if (load == null)
+            {
+                Console.WriteLine("Load not found.");
+                Console.ReadLine();
+                return;
+            }
+
+            Driver assignedDriver = GreedyAssignment.FindBestDriver(drivers, load);
+
+            if (assignedDriver == null)
+            {
+                Console.WriteLine("No available drivers to assign.");
+            }
+            else
+            {
+                assignedDriver.IsAvailable = false;
+                load.AssignedDriverID = assignedDriver.DriverID; // <-- Added
+                load.Status = LoadStatus.Assigned;              // <-- Added
+
+                Console.WriteLine($"Assigned {assignedDriver.DriverName} to Load {load.LoadID}");
+            }
+
+            Console.WriteLine("\nPress Enter to continue...");
+            Console.ReadLine();
+        }
+    }
+}

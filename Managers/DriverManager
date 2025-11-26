@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Core4Logistics
+{
+    public static class DriverManager
+    {
+        public static void AddDriver(List<Driver> drivers)
+        {
+            Console.Clear();
+            Console.WriteLine("=== Add New Driver ===\n");
+
+            Console.Write("Driver Name: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Years of Experience: ");
+            string expInput = Console.ReadLine();
+
+            int experience;
+
+            // Validate number input
+            while (!int.TryParse(expInput, out experience) || experience < 0)
+            {
+                Console.Write("Invalid entry. Enter a valid number for experience: ");
+                expInput = Console.ReadLine();
+            }
+
+            try
+            {
+                Driver newDriver = new Driver(name, experience);
+                drivers.Add(newDriver);
+
+                Console.WriteLine("\nDriver added successfully!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            Console.WriteLine("\nPress Enter to continue...");
+            Console.ReadLine();
+        }
+
+        public static void ViewDrivers(List<Driver> drivers)
+        {
+            Console.Clear();
+            Console.WriteLine("=== View All Drivers ===\n");
+
+            if (drivers.Count == 0)
+            {
+                Console.WriteLine("No drivers found.");
+            }
+            else
+            {
+                foreach (var driver in drivers)
+                {
+                    Console.WriteLine(driver.ToString());
+                }
+            }
+
+            Console.WriteLine("\nPress Enter to continue...");
+            Console.ReadLine();
+        }
+
+        public static void RemoveDriver(List<Driver> drivers)
+        {
+            Console.Clear();
+            Console.WriteLine("=== Remove Driver ===\n");
+
+            Console.Write("Enter the driver name to remove: ");
+            string name = Console.ReadLine();
+
+            var driverToRemove = drivers.FirstOrDefault(d => d.DriverName == name);
+
+            if (driverToRemove != null)
+            {
+                drivers.Remove(driverToRemove);
+                Console.WriteLine("Driver removed successfully!");
+            }
+            else
+            {
+                Console.WriteLine("Driver not found.");
+            }
+
+            Console.WriteLine("\nPress Enter to continue...");
+            Console.ReadLine();
+        }
+    }
+}

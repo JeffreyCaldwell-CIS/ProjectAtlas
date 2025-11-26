@@ -1,0 +1,16 @@
+using System;
+
+namespace Core4Logistics
+{
+    public static class DistanceService
+    {
+        private static Random rand = new Random();
+
+        // TEMPORARY: simulate distance between two cities
+        public static double GetDistance(string origin, string destination)
+        {
+            // For now, return random values 1–500
+            return rand.Next(1, 500);
+        }
+    }
+}

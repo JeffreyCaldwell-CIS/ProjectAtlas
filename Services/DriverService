@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+
+namespace Core4Dispatch
+{
+    
+    public static class DriverService
+    {
+    private static List<Driver> drivers = new List<Driver>(); 
+    }
+
+    public static void AddDriver();
+    {
+        Console.Clear();
+        Console.WriteLine("===Add New Driver===\n");
+
+        Console.Write("Driver Name: ")
+        string name = Console.ReadLine();
+
+        Console.Write("Years of Experience: ")
+        int experience = int.Parse(Console.ReadLine());
+
+        Driver newDriver = new Driver(name, experience);
+
+        drivers.Add(newDriver);
+
+        Console.WriteLine("\nDriver added successfully!");
+        Console.WriteLine(\nPress enter to continue");
+        Console.ReadLine();
+    }
+}

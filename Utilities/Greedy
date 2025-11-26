@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+
+namespace Core4Logistics
+{
+    public static class GreedyAssignment
+    {
+        public static Driver FindBestDriver(List<Driver> drivers, Load load)
+        {
+            Driver bestDriver = null;
+            double bestDistance = double.MaxValue;
+
+            foreach (var driver in drivers)
+            {
+                if (!driver.IsAvailable)
+                    continue;
+
+                // Get distance from driver to pickup
+                double distance = DistanceService.GetDistance(driver.CurrentLocation, load.Origin);
+
+                // If this driver is closer, pick them
+                if (distance < bestDistance)
+                {
+                    bestDistance = distance;
+                    bestDriver = driver;
+                }
+                else if (Math.Abs(distance - bestDistance) < 0.01)
+                {
+                    // Tie breaker 1: experience
+                    if (driver.Experience > bestDriver.Experience)
+                    {
+                        bestDriver = driver;
+                    }
+                    // Tie breaker 2: smallest ID
+                    else if (driver.Experience == bestDriver.Experience &&
+                             driver.DriverID < bestDriver.DriverID)
+                    {
+                        bestDriver = driver;
+                    }
+                }
+            }
+
+            return bestDriver;
+        }
+    }
+}
+//This is a real greedy assignment algorithm, the exact structure used in production TMS systems.

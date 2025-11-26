@@ -1,0 +1,29 @@
+namespace Core4Dispatch.Models
+{
+    public class Tractor
+    {
+        public string TractorNum { get; set; }
+        public string Vin { get; private set; }
+        public string TractorMake { get; set; }
+        public string TractorModel { get; set; }
+        public TractorStatus Status { get; private set; }
+        public bool IsAvailable { get; set; }
+
+        public Tractor(string tractorNum, string vin, string make, string model)
+        {
+            TractorNum = tractorNum;
+            Vin = vin;
+            TractorMake = make;
+            TractorModel = model;
+            Status = TractorStatus.Available;
+            IsAvailable = true;
+        }
+    }
+
+    public enum TractorStatus
+    {
+        Available,
+        InUse,
+        Maintenance
+    }
+}

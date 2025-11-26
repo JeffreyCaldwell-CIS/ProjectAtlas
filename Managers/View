@@ -1,0 +1,9 @@
+static void ViewDrivers(List<Driver> drivers)
+{
+    Console.WriteLine("\n=== Current Drivers ===");
+
+    foreach (var d in drivers)
+    {
+        Console.WriteLine($d.Name} | {d.TruckNumber} | ${d.RatePerMile}/mile");
+    }
+}

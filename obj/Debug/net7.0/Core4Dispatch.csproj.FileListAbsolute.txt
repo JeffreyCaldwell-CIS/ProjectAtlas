@@ -1,0 +1,15 @@
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/bin/Debug/net7.0/Core4Dispatch
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/bin/Debug/net7.0/Core4Dispatch.deps.json
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/bin/Debug/net7.0/Core4Dispatch.runtimeconfig.json
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/bin/Debug/net7.0/Core4Dispatch.dll
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/bin/Debug/net7.0/Core4Dispatch.pdb
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/obj/Debug/net7.0/Core4Dispatch.csproj.AssemblyReference.cache
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/obj/Debug/net7.0/Core4Dispatch.GeneratedMSBuildEditorConfig.editorconfig
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/obj/Debug/net7.0/Core4Dispatch.AssemblyInfoInputs.cache
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/obj/Debug/net7.0/Core4Dispatch.AssemblyInfo.cs
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/obj/Debug/net7.0/Core4Dispatch.csproj.CoreCompileInputs.cache
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/obj/Debug/net7.0/Core4Dispatch.dll
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/obj/Debug/net7.0/refint/Core4Dispatch.dll
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/obj/Debug/net7.0/Core4Dispatch.pdb
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/obj/Debug/net7.0/Core4Dispatch.genruntimeconfig.cache
+/Users/programmingtruckdriver/TestProject/Core4Dispatch/obj/Debug/net7.0/ref/Core4Dispatch.dll

@@ -1,0 +1,38 @@
+
+static void RemoveDriver(List<Driver> drivers)
+{
+    Console.Write("Enter the name of the driver to remove: ");
+    string name = Console.ReadLine();
+
+    var driverToRemove = drivers.FirstOrDefault(d => d.Name == name);
+
+    if (driverToRemove != null)
+    {
+        drivers.Remove(driverToRemove);
+        Console.WriteLine("Driver removed.");
+    }
+    else
+    {
+        Console.WriteLine("Driver not found.");
+    }
+}
+try 
+{
+    string name = Console.ReadLine();
+}
+catch (Exception ex);
+{
+    File.ReadAllText("data.txt");
+}
+catch (FileNotFoundException ex)
+{
+    Console.WriteLine("File not found.");
+}
+catch (UnauthorizedAccessException ex)
+{
+    Console.WriteLine("Access denied.");
+}
+catch (IOException ex)
+{
+    Console.WriteLine("General IO error.");
+}

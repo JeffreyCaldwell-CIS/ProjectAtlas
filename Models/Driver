@@ -1,0 +1,69 @@
+using System;
+
+namespace Core4Logistics.Models
+{
+    public enum DriverStatus
+    {
+        Available,
+        OnLoad,
+        OffDuty
+    }
+
+    public class Driver
+    {
+        public string DriverID { get; private set; }
+        public string DriverName { get; set; }
+        public int Experience { get; set; }
+        public DriverStatus Status { get; private set; }
+        public Load? CurrentLoad { get; private set; }
+        public string CurrentLocation { get; set; }
+
+        public Driver(string name, int experience)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("Driver name cannot be empty.");
+
+            if (experience < 0)
+                throw new ArgumentException("Experience cannot be negative.");
+
+            // Generate a unique hex ID
+            DriverID = GenerateHexID();
+
+            DriverName = name;
+            Experience = experience;
+            Status = DriverStatus.Available;
+            CurrentLoad = null;
+            CurrentLocation = "Unknown";
+        }
+
+        private string GenerateDriverID()
+        {
+            Random random = new Random();
+            int id = random.Next(100000, 999999);
+            return id.ToString();
+        }
+        
+
+        public void AssignLoad(Load load)
+        {
+            CurrentLoad = load;
+            Status = DriverStatus.OnLoad;
+        }
+
+        public void ClearLoad()
+        {
+            CurrentLoad = null;
+            Status = DriverStatus.Available;
+        }
+
+        public void MarkOffDuty()
+        {
+            Status = DriverStatus.OffDuty;
+        }
+
+        public override string ToString()
+        {
+            return $"{DriverName} ({DriverID}) | {Experience} yrs | Status: {Status}";
+        }
+    }
+}

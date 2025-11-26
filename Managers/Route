@@ -1,0 +1,16 @@
+using System
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Core4Logistics
+{
+
+    public static class RouteInfo 
+    {
+     public double PlannedMiles { get; set; } 
+     public TimeSpan EstimatedDriveTime { get; set; } 
+     public string SuggestedRouteSummary {get; set; } 
+    } 
+}

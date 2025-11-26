@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core4Dispatch", "Core4Dispatch.csproj", "{50347A68-00C5-9903-5D83-48F4CC6EEC28}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50347A68-00C5-9903-5D83-48F4CC6EEC28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50347A68-00C5-9903-5D83-48F4CC6EEC28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50347A68-00C5-9903-5D83-48F4CC6EEC28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50347A68-00C5-9903-5D83-48F4CC6EEC28}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C80EFBB6-8C9D-492E-A95C-50E8BC2CDD49}
+	EndGlobalSection
+EndGlobal
