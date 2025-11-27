@@ -1,19 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Core4Logistics
+public class Trailer
 {
-    
-    public class Trailer
-    {
-        public string TrailerNum { get; set; }
-        private int Vin { get; private set; }
-        public string TrailerType { get; set; }
-        public TrailerStatus Status { get; private set; }
-    }
-
-    public bool isAvailable { get; set; }
-    private int Vin = GenerateHexID();
-
+    public string id { get; set; }
+    public string type { get; set; }
+    public int length { get; set; }
+    public string status { get; set; }
+    public string currentLocation { get; set; }
+    public DateTime lastKnownCheck { get; set; }
+    public bool isLoaded { get; set; }
+    public string loadId { get; set; }
+    public string notes { get; set; }
 }
