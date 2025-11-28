@@ -1,12 +1,16 @@
-public class Trailer
+namespace Core4Dispatch.Models
 {
-    public string id { get; set; }
-    public string type { get; set; }
-    public int length { get; set; }
-    public string status { get; set; }
-    public string currentLocation { get; set; }
-    public DateTime lastKnownCheck { get; set; }
-    public bool isLoaded { get; set; }
-    public string loadId { get; set; }
-    public string notes { get; set; }
+
+    public class Trailer
+    {
+        public string id { get; set; }
+        public string type { get; set; }
+        public int length { get; set; }
+        public string status { get; set; }
+        public string currentLocation { get; set; }
+        public DateTime lastKnownCheck { get; set; }
+        public bool isLoaded { get; set; }
+        public string loadId { get; set; }
+        public string notes { get; set; }
+    }
 }

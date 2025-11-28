@@ -1,18 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Core4Logistics
+
+namespace Core4Dispatch
 {
-    //Entry point of the program
     public static class Program
     {
         public static void Main(string[] args)
         {
-            //Create the main driver list
-            List<Driver> drivers = new List<Driver>();
+            // Load existing data on startup
+            List<Driver> drivers = JsonStorageService.LoadData<Driver>("Data/drivers.json");
+            List<Tractor> tractors = JsonStorageService.LoadData<Tractor>("Data/tractors.json");
+            List<Trailer> trailers = JsonStorageService.LoadData<Trailer>("Data/trailers.json");
 
-           //Launch the main menu
-           MainMenu.Show(drivers, loads);
+            Console.WriteLine("Loaded drivers:");
+            foreach (var d in drivers)
+            {
+                Console.WriteLine($"{d.DriverId}: {d.Name} - {d.Status}");
+            }
+
+            // TEMP loads list until we build load model
+            List<Load> loads = new List<Load>();
+
+            // Launch main menu (placeholder for now)
+            // MainMenu.Show(drivers, loads);
+
+            Console.WriteLine("\nProgram.cs restore complete.");
         }
     }
 }

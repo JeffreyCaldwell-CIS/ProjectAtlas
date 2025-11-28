@@ -1,0 +1,17 @@
+{
+  "trailers": [
+    {
+      "id": "T-001",
+      "type": "Dry Van",
+      "length": 53,
+      "status": "Available",
+      "currentLocation": "Cleveland, OH",
+      "lastKnownCheck": "2025-02-13T14:30:00Z",
+      "isLoaded": false,
+      "loadId": null,
+      "notes": "Ready for pickup. Inspected today."
+    }
+  ]
+}
+
+

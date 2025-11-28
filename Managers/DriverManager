@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Core4Logistics
+namespace Core4Dispatch
 {
     public static class DriverManager
     {

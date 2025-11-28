@@ -1,6 +1,6 @@
 using System;
 
-namespace Core4Logistics
+namespace Core4Dispatch
 {
     public static class DistanceService
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Core4Logistics.Models
+namespace Core4Dispatch
 {
     public enum DriverStatus
     {
@@ -9,14 +9,21 @@ namespace Core4Logistics.Models
         OffDuty
     }
 
+    
+
     public class Driver
     {
-        public string DriverID { get; private set; }
-        public string DriverName { get; set; }
-        public int Experience { get; set; }
-        public DriverStatus Status { get; private set; }
-        public Load? CurrentLoad { get; private set; }
-        public string CurrentLocation { get; set; }
+        public int DriverId { get; set; }
+        public string Name { get; set; }
+        public string Status { get; set; }
+        public int TractorId { get; set; }
+        public string Location { get; set; }
+        public string Phone { get; set; }
+        public int? CurrentLoadId { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+
 
         public Driver(string name, int experience)
         {

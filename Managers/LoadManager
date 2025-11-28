@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Core4Logistics.Models;
 
-namespace Core4Logistics.Managers
+namespace Core4Dispatch.Managers
 {
     public static class LoadManager
     {
