@@ -1,0 +1,33 @@
+namespace Core4Dispatch.Services
+{
+    public static class DriverScoreService
+    {
+        public static double ScoreDriver(Driver)
+        {
+            // Weights (must total 1.0)
+            double distWeight = 0.30;
+            double maintWeight = 0.30;
+            double fuelWeight = 0.20;
+            double idleWeight = 0.10;
+            double gpsWeight = 0.10;
+
+            // Convert everything to a score out of 10
+            double distanceScore = ConvertDistanceToScore(distance);
+            double maintScore = ConvertMaintenanceToScore(trailer);
+            double fuelScore = ConvertFuelToScore(trailer);
+            double idleScore = ConvertIdleToScore(trailer);
+            double gpsScore = gpsQuality; // already 0–10 in your example
+
+            // Weighted score
+            return (
+                distanceScore * distWeight +
+                maintScore * maintWeight +
+                fuelScore * fuelWeight +
+                idleScore * idleWeight +
+                gpsScore * gpsWeight
+            );
+        }
+
+        // Helper scoring functions go here…
+    }
+}
